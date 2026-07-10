@@ -70,26 +70,26 @@ const Navbar = () => {
               membership.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 py-5 w-full justify-center items-start">
-  <div className="w-full sm:w-80 md:w-96">
-    <input
-      className={`w-full rounded bg-black/50 p-3 border ${
-        error ? "border-red-500" : "border-gray-500"
-      }`}
-      value={value}
-      onChange={(e) => {
-        setValue(e.target.value);
-        setError("");
-      }}
-      type="email"
-      placeholder="Email address"
-    />
+              <div className="w-full sm:w-80 md:w-96">
+                <input
+                  className={`w-full rounded bg-black/50 p-3 border ${
+                    error ? "border-red-500" : "border-gray-500"
+                  }`}
+                  value={value}
+                  onChange={(e) => {
+                    setValue(e.target.value);
+                    setError("");
+                  }}
+                  type="email"
+                  placeholder="Email address"
+                />
 
-    {error && (
-      <p className="mt-2 text-sm text-red-500 text-left">
-        {error}
-      </p>
-    )}
-  </div>
+                {error && (
+                  <p className="mt-2 text-sm text-red-500 text-left">
+                    {error}
+                  </p>
+                )}
+              </div>
 
   <button
     className="cursor-pointer bg-red-600 px-6 py-3 rounded font-semibold w-full sm:w-auto"
