@@ -1,9 +1,32 @@
 import bgimg from '../assets/banner.jpg'
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useState } from 'react';
 
 
 const Navbar = () => {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+
+    const [value, setValue] = useState("");
+    const [error, setError] = useState("");
+
+    const handleClick = () => {
+        if (!value.trim()) {
+        setError("Please enter your email or mobile number.");
+        return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const mobileRegex = /^[0-9]{10}$/;
+
+        if (!emailRegex.test(value) && !mobileRegex.test(value)) {
+        setError("Please enter a valid email or 10-digit mobile number.");
+        return;
+        }
+
+        setError("");
+        toast("🚧 Backend needs to be implemented.");
+    };
 
   return (
     <>
@@ -46,16 +69,35 @@ const Navbar = () => {
               Ready to watch? Enter your email to create or restart your
               membership.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 py-5 w-full justify-center items-center">
-              <input
-                className="w-full sm:w-80 md:w-96 border border-gray-500 bg-black/50 p-3 rounded"
-                type="email"
-                placeholder="Email address"
-              />
-              <button className="cursor-pointer bg-red-600 px-6 py-3 rounded font-semibold">
-                Get Started
-              </button>
-            </div>
+            <div className="flex flex-col sm:flex-row gap-3 py-5 w-full justify-center items-start">
+  <div className="w-full sm:w-80 md:w-96">
+    <input
+      className={`w-full rounded bg-black/50 p-3 border ${
+        error ? "border-red-500" : "border-gray-500"
+      }`}
+      value={value}
+      onChange={(e) => {
+        setValue(e.target.value);
+        setError("");
+      }}
+      type="email"
+      placeholder="Email address"
+    />
+
+    {error && (
+      <p className="mt-2 text-sm text-red-500 text-left">
+        {error}
+      </p>
+    )}
+  </div>
+
+  <button
+    className="cursor-pointer bg-red-600 px-6 py-3 rounded font-semibold w-full sm:w-auto"
+    onClick={handleClick}
+  >
+    Get Started
+  </button>
+</div>
           </div>
         </div>
       </div>

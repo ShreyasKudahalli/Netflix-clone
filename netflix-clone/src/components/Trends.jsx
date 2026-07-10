@@ -4,7 +4,7 @@ import Trending3 from "../assets/trending3.webp";
 import Trending4 from "../assets/trending4.webp";
 import Trending5 from "../assets/trending5.webp";
 import Trending6 from "../assets/trending6.webp";
-
+import toast from "react-hot-toast";
 
 
 const Trends = () => {
@@ -34,12 +34,16 @@ const Trends = () => {
       url: Trending6,
     }
   ];
+
+  const handleClick = () => {
+    toast("🚧 Backend needs to be implemented.");
+  }
   return (
   <div className="px-4 py-8 sm:px-6 md:px-10 lg:px-16">
     <h2 className="text-xl font-bold sm:text-2xl">
       Trending Now
     </h2>
-    <div className="mt-3 px-4 flex gap-4 overflow-x-auto overflow-y-hidden pb-4 hide-scrollbar sm:gap-6 md:gap-8">
+    <div className="mt-3 px-4 flex gap-4 overflow-x-auto overflow-y-hidden pb-4 hide-scrollbar sm:gap-6 md:gap-8" onClick={handleClick}>
       {movies.map((movie) => (
         <div
           key={movie.id}
