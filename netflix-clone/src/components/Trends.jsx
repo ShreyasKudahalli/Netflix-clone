@@ -39,11 +39,11 @@ const Trends = () => {
     <h2 className="text-xl font-bold sm:text-2xl">
       Trending Now
     </h2>
-    <div className="mt-6 px-4 flex gap-4 overflow-x-auto overflow-y-hidden pb-4 hide-scrollbar sm:gap-6 md:gap-8">
+    <div className="mt-3 px-4 flex gap-4 overflow-x-auto overflow-y-hidden pb-4 hide-scrollbar sm:gap-6 md:gap-8">
       {movies.map((movie) => (
         <div
           key={movie.id}
-          className="relative flex-shrink-0 transition-transform duration-300 hover:scale-105"
+          className="cursor-pointer pt-4 relative flex-shrink-0 transition-transform duration-300 hover:scale-105"
         >
           <img
             src={movie.url}
