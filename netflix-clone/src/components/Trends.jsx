@@ -3,7 +3,7 @@ import Trending2 from "../assets/trending2.webp";
 import Trending3 from "../assets/trending3.webp";
 import Trending4 from "../assets/trending4.webp";
 import Trending5 from "../assets/trending5.webp";
-import Trending6 from "../assets/trending6.webp";
+import Trending6 from "../assets/rending6.webp";
 
 
 
